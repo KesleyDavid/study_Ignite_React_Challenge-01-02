@@ -56,10 +56,10 @@ export function App() {
   function handleClickButton(id: number) {
     setSelectedGenreId(id);
   }
-
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <nav className="sidebar">
+      {/* <nav className="sidebar">
         <span>Watch<p>Me</p></span>
 
         <div className="buttons-container">
@@ -74,7 +74,7 @@ export function App() {
           ))}
         </div>
 
-      </nav>
+      </nav> */}
 
       <div className="container">
         <header>
