@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { api } from './services/api';
+import { GenresProvider } from './hooks/useGenres';
 
-import { Button } from './components/Button';
-import { Header } from './components/Header';
-import { MovieCard } from './components/MovieCard';
 import { SideBar } from './components/SideBar';
-
-// import { Content } from './components/Content';
+import { Content } from './components/Content';
 
 import { GlobalStyle } from "./styles/global";
-import './styles/sidebar.scss';
-import './styles/content.scss';
-import { GenresProvider } from './hooks/useGenres';
 
 interface GenreResponseProps {
   id: number;
@@ -62,17 +55,7 @@ export function App() {
     <GenresProvider>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <SideBar />
-        <div className="container">
-          <Header selectedGenreTitle={selectedGenre.title} />
-
-          <main>
-            <div className="movies-list">
-              {movies.map(movie => (
-                <MovieCard title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
-              ))}
-            </div>
-          </main>
-        </div>
+        <Content />
       </div>
       <GlobalStyle />
     </GenresProvider>

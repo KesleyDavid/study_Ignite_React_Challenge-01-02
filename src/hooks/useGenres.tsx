@@ -28,7 +28,6 @@ export function GenresProvider({ children }: GenresProviderProps) {
 
   useEffect(() => {
     api.get<Genre[]>('/genres').then(response => {
-      console.log(genres)
       setGenres(response.data);
     });
   }, []);

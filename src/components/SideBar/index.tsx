@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useGenres } from '../../hooks/useGenres';
 
 import { Button } from '../Button';
@@ -18,6 +17,7 @@ export function SideBar() {
       <ButtonsContainer>
         {genres.map(genre => (
           <Button
+            key={genre.id}
             id={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
