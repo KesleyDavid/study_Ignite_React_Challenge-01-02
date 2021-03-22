@@ -8,18 +8,17 @@ interface Genre {
 }
 
 interface GenresProviderProps {
-  children: ReactNode, // Qualquer conteudo válido no react
+  children: ReactNode,
 }
 
 interface GenresContextData {
   genres: Genre[];
   selectedGenreId: number;
   setSelectedGenreId: (id:number) => void;
-  fncTest: (id:number) => void;
 }
 
 const GenresContext = createContext<GenresContextData>(
-  {} as GenresContextData // Força o react a entender que SIM, ele possui esse formato
+  {} as GenresContextData
 );
 
 export function GenresProvider({ children }: GenresProviderProps) {
@@ -32,24 +31,8 @@ export function GenresProvider({ children }: GenresProviderProps) {
     });
   }, []);
 
-  function fncTest(id: number){
-    console.log('test: '+id);
-  }
-  // async function createTransaction(transactionInput: TransactionInput) {
-  //   const response = await api.post('/transactions', {
-  //     ...transactionInput,
-  //     createdAt: new Date(),
-  //   });
-    
-  //   const { transaction } = response.data;
-  //   setTransactions([
-  //     ...transactions,
-  //     transaction,
-  //   ]);
-  // }
-
   return (
-    <GenresContext.Provider value={{ genres, selectedGenreId, setSelectedGenreId, fncTest }}>
+    <GenresContext.Provider value={{ genres, selectedGenreId, setSelectedGenreId }}>
       {children}
     </GenresContext.Provider>
   )
