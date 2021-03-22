@@ -5,13 +5,14 @@ import { api } from './services/api';
 import { Button } from './components/Button';
 import { Header } from './components/Header';
 import { MovieCard } from './components/MovieCard';
+import { SideBar } from './components/SideBar';
 
-// import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
 
 import { GlobalStyle } from "./styles/global";
 import './styles/sidebar.scss';
 import './styles/content.scss';
+import { GenresProvider } from './hooks/useGenres';
 
 interface GenreResponseProps {
   id: number;
@@ -37,46 +38,30 @@ export function App() {
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 
-  useEffect(() => {
-    api.get<GenreResponseProps[]>('genres').then(response => {
-      setGenres(response.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   api.get<GenreResponseProps[]>('genres').then(response => {
+  //     setGenres(response.data);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
-      setMovies(response.data);
-    });
+  // useEffect(() => {
+  //   api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
+  //     setMovies(response.data);
+  //   });
 
-    api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
-      setSelectedGenre(response.data);
-    })
-  }, [selectedGenreId]);
+  //   api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
+  //     setSelectedGenre(response.data);
+  //   })
+  // }, [selectedGenreId]);
 
-  function handleClickButton(id: number) {
-    setSelectedGenreId(id);
-  }
+  // function handleClickButton(id: number) {
+  //   setSelectedGenreId(id);
+  // }
   
   return (
-    <>
+    <GenresProvider>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <nav className="sidebar">
-          <span>Watch<p>Me</p></span>
-
-          <div className="buttons-container">
-            {genres.map(genre => (
-              <Button
-                id={String(genre.id)}
-                title={genre.title}
-                iconName={genre.name}
-                onClick={() => handleClickButton(genre.id)}
-                selected={selectedGenreId === genre.id}
-              />
-            ))}
-          </div>
-
-        </nav>
-
+        <SideBar />
         <div className="container">
           <Header selectedGenreTitle={selectedGenre.title} />
 
@@ -90,6 +75,6 @@ export function App() {
         </div>
       </div>
       <GlobalStyle />
-    </>
+    </GenresProvider>
   )
 }
