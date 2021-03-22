@@ -5,8 +5,10 @@
 </h1>
 
 <p align="center">
+  <a href="#">
     <img alt="Logo" title="Logo" src=".github/logo.png" width="75px" />
-    <h3 align="center">Watch Me</h3>
+  </a>
+  <h3 align="center">Watch Me</h3>
 </p>
 
 <p align="center">
