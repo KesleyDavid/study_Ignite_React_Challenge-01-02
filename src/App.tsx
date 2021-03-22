@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
+import { api } from './services/api';
+
 import { Button } from './components/Button';
 import { MovieCard } from './components/MovieCard';
+import { Header } from './components/Header';
 
 // import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
 
-import { api } from './services/api';
-
 import { GlobalStyle } from "./styles/global";
-
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
@@ -78,9 +78,7 @@ export function App() {
         </nav>
 
         <div className="container">
-          <header>
-            <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-          </header>
+          <Header selectedGenreTitle={selectedGenre.title} />
 
           <main>
             <div className="movies-list">
