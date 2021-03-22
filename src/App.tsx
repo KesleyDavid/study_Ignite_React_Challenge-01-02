@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { api } from './services/api';
 
 import { Button } from './components/Button';
-import { MovieCard } from './components/MovieCard';
 import { Header } from './components/Header';
+import { MovieCard } from './components/MovieCard';
 
 // import { SideBar } from './components/SideBar';
 // import { Content } from './components/Content';
