@@ -70,7 +70,7 @@ In this challenge, you will have to create an application to train what you have
 
 This will be an application where your main objective is to refactor a page for listing films according to genre.  
 
-The application is already fully functional but a large part of its code is directly in the `App.tsx` file. To solve this in the best way, it is necessary to divide the application into ** at least ** two main parts: sidebar and the main content that has the header and the list of films.  
+The application is already fully functional but a large part of its code is directly in the `App.tsx` file. To solve this in the best way, it is necessary to divide the application into **at least** two main parts: sidebar and the main content that has the header and the list of films.  
 
 - The application has only one main feature, which is the listing of films;
 - In the sidebar it is possible to select which category of films should be listed;
