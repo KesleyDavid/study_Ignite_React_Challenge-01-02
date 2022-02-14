@@ -61,7 +61,7 @@
 
 ## ✨ Preview
 
-Sistema Online  
+Online system  
 [https://study-ignite-react-challenge-01-02.vercel.app](https://study-ignite-react-challenge-01-02.vercel.app//)
 
 ## 💻 Project
